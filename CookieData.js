@@ -2,6 +2,7 @@
 
 /**
  * A factory function for storing key:value object data in a cookie
+ *
  * 
  * @param  string cookieName Name of the cookie
  * @return object cookieName Name of the cookie
