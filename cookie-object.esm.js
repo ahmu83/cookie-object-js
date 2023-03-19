@@ -2,12 +2,11 @@
 
 /**
  * A factory function for storing key:value object data in a cookie
- *
  * 
  * @param  string cookieName Name of the cookie
  * @return object cookieName Name of the cookie
  */
-function CookieData(cookieName) {
+export function cookieObject(cookieName, cookieDays = false, cookiePath = '/') {
 
   if ( typeof cookieName !== 'string' ) {
 
@@ -30,16 +29,16 @@ function CookieData(cookieName) {
 
         try {
 
-          var cookieDataStr = JSON.stringify(itemName);
-          var cookieDataStrLength = cookieDataStr.length;
+          var cookieObjectStr = JSON.stringify(itemName);
+          var cookieObjectStrLength = cookieObjectStr.length;
 
-          if ( cookieDataStrLength >= 4000 ) {
+          if ( cookieObjectStrLength >= 4000 ) {
 
             throw new Error('Reaching cookie size limit');
 
           }
 
-          this.setCookieValue(cookieDataStr);
+          this.setCookieValue(cookieObjectStr);
 
         } catch(error) {
 
@@ -68,11 +67,11 @@ function CookieData(cookieName) {
 
       if ( typeof itemName === 'string' || typeof itemName === 'number' ) {
 
-        var cookieData = this.get();
+        var cookieObject = this.get();
 
-        cookieData[itemName] = itemValue;
+        cookieObject[itemName] = itemValue;
 
-        this.set(cookieData);
+        this.set(cookieObject);
 
         return this.getItem(itemName);
 
@@ -90,11 +89,11 @@ function CookieData(cookieName) {
      */
     get(itemName = null) {
 
-      var cookieData = this.getCookieValue(cookieName);
+      var cookieObject = this.getCookieValue(cookieName);
 
       if ( itemName === null ) {
 
-        if ( !cookieData || typeof cookieData === 'undefined' ) {
+        if ( !cookieObject || typeof cookieObject === 'undefined' ) {
 
           return {};
 
@@ -102,7 +101,7 @@ function CookieData(cookieName) {
 
         try {
 
-          return JSON.parse(cookieData);
+          return JSON.parse(cookieObject);
 
         } catch (e) {
 
@@ -130,9 +129,9 @@ function CookieData(cookieName) {
 
       if ( typeof itemName === 'string' || typeof itemName === 'number' ) {
 
-        var cookieData = this.get();
+        var cookieObject = this.get();
 
-        return ( typeof cookieData[itemName] === 'undefined' ? null : cookieData[itemName] );
+        return ( typeof cookieObject[itemName] === 'undefined' ? null : cookieObject[itemName] );
 
       } else {
 
@@ -152,13 +151,13 @@ function CookieData(cookieName) {
 
       if ( typeof itemName === 'string' || typeof itemName === 'number' ) {
 
-        var cookieData = this.get();
+        var cookieObject = this.get();
 
-        if ( typeof cookieData[itemName] !== 'undefined' ) {
+        if ( typeof cookieObject[itemName] !== 'undefined' ) {
 
-          delete cookieData[itemName];
+          delete cookieObject[itemName];
 
-          this.set(cookieData);
+          this.set(cookieObject);
 
           return true;
 
@@ -187,7 +186,7 @@ function CookieData(cookieName) {
 
     },
 
-    setCookieValue(cookieValue, cookieDays = false, cookiePath = '/') {
+    setCookieValue(cookieValue) {
 
       var expires;
 
@@ -238,7 +237,7 @@ function CookieData(cookieName) {
 
     },
 
-    removeCookie(cookiePath = '/') {
+    removeCookie() {
 
       this.set(cookieName, '', -1, cookiePath);
 
@@ -247,4 +246,3 @@ function CookieData(cookieName) {
   }
 
 }
-
