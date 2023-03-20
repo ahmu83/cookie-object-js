@@ -12,13 +12,12 @@ A JavaScript factory function for storing key:value object data in a cookie
 Cookie Object JS supports [npm](https://www.npmjs.com/package/js-cookie) under the name `cookie-object-js`.
 
 ```bash
-npm i js-cookie
+npm i cookie-object-js
 ```
 
 ### Examples
 
 ```html
-<script type="module" src="./js-cookie-object.esm.js"></script>
 <script type="module">
   import { cookieObject } from './cookie-object.esm.js';
 
@@ -35,8 +34,8 @@ npm i js-cookie
 ```
 
 ```html
-<script type="module" src="/path/to/js.cookie.mjs"></script>
-<script nomodule defer src="/path/to/js.cookie.js"></script>
+<script type="module" src="./cookie-object.esm.js"></script>
+<script nomodule defer src="./cookie-object.js"></script>
 ```
 
 Here we're loading the nomodule script in a deferred fashion, because ES modules are deferred by default. This may not be strictly necessary depending on how you're using the library.
