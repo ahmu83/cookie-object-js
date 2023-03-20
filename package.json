@@ -1,0 +1,19 @@
+{
+  "name": "cookie-object-js",
+  "version": "1.0.0",
+  "description": "A JavaScript factory function for storing key:value object data in a cookie",
+  "main": "cookie-object.esm.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmu83/cookie-object-js.git"
+  },
+  "author": "Ahmad Karim <ahmu83@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmu83/cookie-object-js/issues"
+  },
+  "homepage": "https://github.com/ahmu83/cookie-object-js#readme"
+}
