@@ -6,7 +6,7 @@
  * @param  string cookieName Name of the cookie
  * @return object cookieName Name of the cookie
  */
-export default function cookieObject(cookieName, cookieDays = false, cookiePath = '/') {
+export function cookieObject(cookieName, cookieDays = false, cookiePath = '/') {
 
   if ( typeof cookieName !== 'string' ) {
 
