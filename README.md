@@ -20,6 +20,7 @@ npm i cookie-object-js
 ```html
 <script type="module">
   import { cookieObject } from './cookie-object.esm.js';
+  // OR import { cookieObject } from 'cookie-object-js';
 
   var data = cookieObject('my_cookie_name');
 
